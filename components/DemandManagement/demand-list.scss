@@ -1,0 +1,74 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fbfbfb;  // Mantendo a consistência com o fundo do form
+    border: 1px solid #444;
+    border-radius: 4px;
+  }
+  
+  thead {
+    background-color: #2980b9;  // Azul mais escuro para cabeçalhos
+    color: #2d2d2d;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #555;  // Bordas mais escuras
+    color: #2d2d2d;  // Texto mais claro para contraste
+  }
+
+  th { 
+    color: white;
+  }
+  
+  tbody tr:hover {
+    background-color: #f4f4f4;  // Fundo escuro no hover
+  }
+  
+  button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+    font-size: 14px;
+    color: white;
+  }
+  
+  button:first-child {
+    background-color: #27ae60;  // Verde mais claro para o botão de editar
+  }
+  
+  button:first-child:hover {
+    background-color: #229954;  // Verde mais escuro no hover
+  }
+  
+  button:last-child {
+    background-color: #e74c3c;  // Vermelho mais claro para o botão de deletar
+  }
+  
+  button:last-child:hover {
+    background-color: #c0392b;  // Vermelho mais escuro no hover
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .page-item {
+    list-style: none;
+    padding: 8px 16px;
+    border: 1px solid #555;
+    margin: 0 5px;
+    cursor: pointer;
+    color: #fbfbfb;  // Texto claro para as páginas
+  }
+  
+  .page-item.active {
+    background-color: #2980b9;
+    color: white;
+  }
+  
