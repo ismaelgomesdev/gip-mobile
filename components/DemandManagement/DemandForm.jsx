@@ -1,14 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import MapComponent from '../Map/MapComponent';
 import StockSelector from '../Stock/StockSelector';
+import { AgentContext } from '../../src/contexts/AgentContext'; // Import AgentContext
 import './demand-form.scss';
 
-const DemandForm = ({ onSave, demand, agents, stock }) => {
-  const [location, setLocation] = useState(demand?.location || '');
-  const [address, setAddress] = useState(demand?.address || '');
-  const [description, setDescription] = useState(demand?.description || '');
-  const [agentId, setAgentId] = useState(demand?.agentId || '');
-  const [selectedItems, setSelectedItems] = useState(demand?.selectedItems || []);
+const DemandForm = ({ onSave, demand, stock }) => {
+  const [location, setLocation] = useState('');
+  const [address, setAddress] = useState('');
+  const [description, setDescription] = useState('');
+  const [agentId, setAgentId] = useState('');
+  const [selectedItems, setSelectedItems] = useState([]);
+
+  const { agents } = useContext(AgentContext); // Get agents from context
+
+  useEffect(() => {
+    if (demand) {
+      setLocation(demand.location || '');
+      setAddress(demand.address || '');
+      setDescription(demand.description || '');
+      setAgentId(demand.agentId || '');
+      setSelectedItems(demand.selectedItems || []);
+    }
+  }, [demand]);
 
   const handleLocationSelect = (loc) => {
     setLocation(`${loc.lat}, ${loc.lng}`);
@@ -26,6 +39,13 @@ const DemandForm = ({ onSave, demand, agents, stock }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSave({ id: demand?.id, location, address, description, agentId, selectedItems });
+
+    // Reset form after saving
+    setLocation('');
+    setAddress('');
+    setDescription('');
+    setAgentId('');
+    setSelectedItems([]);
   };
 
   return (

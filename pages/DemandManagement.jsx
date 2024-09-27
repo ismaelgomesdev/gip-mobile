@@ -1,7 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import DemandForm from '../components/DemandManagement/DemandForm';
 import DemandList from '../components/DemandManagement/DemandList';
 import { StockContext } from '../src/contexts/StockContext';
+import { AgentContext } from '../src/contexts/AgentContext'; // Import the AgentContext
 import './demand-management.scss';
 
 const DemandManagement = () => {
@@ -10,27 +11,57 @@ const DemandManagement = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 5;
 
-  const agents = [
-    { id: '1', name: 'Agente 1' },
-    { id: '2', name: 'Agente 2' },
-    { id: '3', name: 'Agente 3' },
-  ];
+  const { stock } = useContext(StockContext);
+  const { agents } = useContext(AgentContext); // Get agents from AgentContext
 
-  const { stock, updateStock } = useContext(StockContext);
+  // Load demands from the server
+  useEffect(() => {
+    fetch('http://localhost:5000/api/demands')
+      .then(response => response.json())
+      .then(data => setDemands(data.demands))
+      .catch(error => console.error('Error loading demands:', error));
+  }, []);
 
   const saveDemand = (demand) => {
+    let updatedDemands;
     if (demand.id) {
-      setDemands(demands.map(d => (d.id === demand.id ? { ...demand, agentName: agents.find(a => a.id === demand.agentId).name } : d)));
+      updatedDemands = demands.map(d => (d.id === demand.id ? { ...demand, agentName: agents.find(a => a.id === demand.agentId)?.name } : d));
     } else {
       demand.id = Date.now().toString();
-      demand.agentName = agents.find(a => a.id === demand.agentId).name;
-      setDemands([...demands, demand]);
+      demand.agentName = agents.find(a => a.id === demand.agentId)?.name;
+      updatedDemands = [...demands, demand];
     }
-    setEditingDemand(null);
+
+    // Update the server
+    fetch('http://localhost:5000/api/demands', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ demands: updatedDemands }),
+    })
+    .then(response => response.json())
+    .then(() => {
+      setDemands(updatedDemands);
+      setEditingDemand(null);
+    })
+    .catch(error => console.error('Error saving demand:', error));
   };
 
   const deleteDemand = (id) => {
-    setDemands(demands.filter(d => d.id !== id));
+    const updatedDemands = demands.filter(d => d.id !== id);
+    fetch('http://localhost:5000/api/demands', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ demands: updatedDemands }),
+    })
+    .then(response => response.json())
+    .then(() => {
+      setDemands(updatedDemands);
+    })
+    .catch(error => console.error('Error deleting demand:', error));
   };
 
   const editDemand = (demand) => {

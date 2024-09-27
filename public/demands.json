@@ -1,0 +1,25 @@
+{
+    "demands": [
+      {
+        "id": "1",
+        "location": "-3.7318616, -38.5266704",
+        "address": "Rua A, 123, Fortaleza, CE",
+        "description": "Verificação de iluminação",
+        "agentId": "1",
+        "selectedItems": [
+          { "id": "1", "name": "Item A", "selectedQuantity": 5 }
+        ]
+      },
+      {
+        "id": "2",
+        "location": "-3.7366124, -38.502304",
+        "address": "Av. B, 456, Fortaleza, CE",
+        "description": "Manutenção de semáforo",
+        "agentId": "2",
+        "selectedItems": [
+          { "id": "2", "name": "Item B", "selectedQuantity": 10 }
+        ]
+      }
+    ]
+  }
+  

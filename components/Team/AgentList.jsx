@@ -1,30 +1,26 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
-import './demand-list.scss';
+import './agent-list.scss';
 
-const DemandList = ({ demands, onEdit, onDelete, pageCount, onPageChange }) => {
+const AgentList = ({ agents, onEdit, onDelete, pageCount, onPageChange }) => {
   return (
     <div>
       <table>
         <thead>
           <tr>
-            <th>Posicionamento</th>
-            <th>Endereço</th>
-            <th>Descrição</th>
-            <th>Agente resp.</th>
+            <th>Nome</th>
+            <th>Email</th>
             <th>Ações</th>
           </tr>
         </thead>
         <tbody>
-          {demands.map(demand => (
-            <tr key={demand.id}>
-              <td>{demand.location}</td>
-              <td>{demand.address}</td>
-              <td>{demand.description}</td>
-              <td>{demand.agentName}</td>
+          {agents.map(agent => (
+            <tr key={agent.id}>
+              <td>{agent.name}</td>
+              <td>{agent.email}</td>
               <td>
-                <button onClick={() => onEdit(demand)}>Editar</button>
-                <button onClick={() => onDelete(demand.id)}>Deletar</button>
+                <button onClick={() => onEdit(agent)}>Editar</button>
+                <button onClick={() => onDelete(agent.id)}>Deletar</button>
               </td>
             </tr>
           ))}
@@ -45,4 +41,4 @@ const DemandList = ({ demands, onEdit, onDelete, pageCount, onPageChange }) => {
   );
 };
 
-export default DemandList;
+export default AgentList;

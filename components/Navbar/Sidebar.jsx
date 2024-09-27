@@ -38,7 +38,7 @@ const Sidebar = () => {
         </li>
         <li>
           <NavLink 
-            to="/inventario" 
+            to="/gestao-estoque" 
             className={({ isActive }) => isActive ? "active" : undefined}
           >
             Gestão de Estoque
@@ -46,18 +46,18 @@ const Sidebar = () => {
         </li>
         <li>
           <NavLink 
-            to="/relatorios" 
+            to="/gestao-equipe" 
             className={({ isActive }) => isActive ? "active" : undefined}
           >
-            Relatórios
+            Gestao de Equipe
           </NavLink>
         </li>
         <li>
           <NavLink 
-            to="/agendas" 
+            to="/solicitacoes" 
             className={({ isActive }) => isActive ? "active" : undefined}
           >
-            Agendas
+            Solicitações dos Cidadãos
           </NavLink>
         </li>
       </ul>

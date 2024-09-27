@@ -1,30 +1,30 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
-import './demand-list.scss';
+import './request-list.scss';
 
-const DemandList = ({ demands, onEdit, onDelete, pageCount, onPageChange }) => {
+const RequestList = ({ requests, onEdit, onDelete, pageCount, onPageChange }) => {
   return (
     <div>
       <table>
         <thead>
           <tr>
-            <th>Posicionamento</th>
+            <th>Nome Completo</th>
+            <th>CPF</th>
             <th>Endereço</th>
-            <th>Descrição</th>
-            <th>Agente resp.</th>
+            <th>Descrição da Solicitação</th>
             <th>Ações</th>
           </tr>
         </thead>
         <tbody>
-          {demands.map(demand => (
-            <tr key={demand.id}>
-              <td>{demand.location}</td>
-              <td>{demand.address}</td>
-              <td>{demand.description}</td>
-              <td>{demand.agentName}</td>
+          {requests.map(request => (
+            <tr key={request.id}>
+              <td>{request.fullName}</td>
+              <td>{request.cpf}</td>
+              <td>{request.address}</td>
+              <td>{request.description}</td>
               <td>
-                <button onClick={() => onEdit(demand)}>Editar</button>
-                <button onClick={() => onDelete(demand.id)}>Deletar</button>
+                <button onClick={() => onEdit(request)}>Editar</button>
+                <button onClick={() => onDelete(request.id)}>Deletar</button>
               </td>
             </tr>
           ))}
@@ -45,4 +45,4 @@ const DemandList = ({ demands, onEdit, onDelete, pageCount, onPageChange }) => {
   );
 };
 
-export default DemandList;
+export default RequestList;

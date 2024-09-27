@@ -1,0 +1,66 @@
+form {
+    background-color: #fbfbfb;  // Fundo claro para contraste suave
+    border: 1px solid #444;  // Borda com leve contraste
+    padding: 16px;
+    border-radius: 4px;
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+  
+  form div {
+    margin-bottom: 16px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #2d2d2d;  // Texto em cor escura para boa legibilidade
+  }
+  
+  input[type="text"], input[type="number"], textarea, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #555;  // Borda que se harmoniza com o fundo
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #ffffff;  // Fundo do input em branco para contraste com o texto
+    color: #2d2d2d;  // Cor do texto em tom escuro para leitura fácil
+  }
+  
+  input[type="number"] {
+    max-width: 150px;  // Limitação da largura do input numérico para evitar espaçamento excessivo
+  }
+
+  textarea {
+    resize: vertical;
+  }
+  
+  button[type="submit"] {
+    background-color: #3498db;  // Azul para os botões de ação
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #2980b9;  // Azul mais escuro no hover para feedback visual
+  }
+
+  button[type="button"] {
+    background-color: #7f8c8d;  // Cinza para botões secundários ou de cancelamento
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;  // Espaço entre botões
+  }
+  
+  button[type="button"]:hover {
+    background-color: #95a5a6;  // Cinza mais claro no hover
+  }

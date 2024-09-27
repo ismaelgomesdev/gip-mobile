@@ -1,0 +1,32 @@
+.team-management {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    min-width: 73.5vw;
+  }
+  
+  .team-management__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%; 
+    padding: 0 20px;
+  }
+  
+  .team-management__content > div { 
+    flex: 1; 
+    margin-right: 20px; 
+  }
+  
+  .team-management__content > form:first-child {
+    margin-right: 20px;
+  }
+  
+  .team-management__content > div {
+    margin-right: 0;
+  }
+  

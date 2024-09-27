@@ -1,30 +1,26 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
-import './demand-list.scss';
+import './stock-list.scss';
 
-const DemandList = ({ demands, onEdit, onDelete, pageCount, onPageChange }) => {
+const StockList = ({ stock, onEdit, onDelete, pageCount, onPageChange }) => {
   return (
     <div>
       <table>
         <thead>
           <tr>
-            <th>Posicionamento</th>
-            <th>Endereço</th>
-            <th>Descrição</th>
-            <th>Agente resp.</th>
+            <th>Nome</th>
+            <th>Quantidade</th>
             <th>Ações</th>
           </tr>
         </thead>
         <tbody>
-          {demands.map(demand => (
-            <tr key={demand.id}>
-              <td>{demand.location}</td>
-              <td>{demand.address}</td>
-              <td>{demand.description}</td>
-              <td>{demand.agentName}</td>
+          {stock.map(item => (
+            <tr key={item.id}>
+              <td>{item.name}</td>
+              <td>{item.quantity}</td>
               <td>
-                <button onClick={() => onEdit(demand)}>Editar</button>
-                <button onClick={() => onDelete(demand.id)}>Deletar</button>
+                <button onClick={() => onEdit(item)}>Editar</button>
+                <button onClick={() => onDelete(item.id)}>Deletar</button>
               </td>
             </tr>
           ))}
@@ -45,4 +41,4 @@ const DemandList = ({ demands, onEdit, onDelete, pageCount, onPageChange }) => {
   );
 };
 
-export default DemandList;
+export default StockList;

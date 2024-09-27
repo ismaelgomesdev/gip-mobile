@@ -6,25 +6,45 @@ export const StockProvider = ({ children }) => {
   const [stock, setStock] = useState([]);
 
   useEffect(() => {
-    // Carregar os dados do arquivo JSON
-    fetch('/stock.json')
+    fetch('http://localhost:5000/api/stock')
       .then(response => response.json())
       .then(data => setStock(data.stock))
       .catch(error => console.error('Erro ao carregar o estoque:', error));
   }, []);
 
+  const persistStock = (updatedStock) => {
+    fetch('http://localhost:5000/api/stock', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ stock: updatedStock }),
+    }).catch(error => console.error('Erro ao persistir o estoque:', error));
+  };
+
   const updateStock = (updatedItem) => {
     const updatedStock = stock.map(item =>
-      item.id === updatedItem.id ? { ...item, quantity: updatedItem.quantity } : item
+      item.id === updatedItem.id ? { ...item, quantity: updatedItem.quantity, name: updatedItem.name } : item
     );
     setStock(updatedStock);
+    persistStock(updatedStock);
+  };
 
-    // Aqui, você pode adicionar a lógica para persistir a alteração no arquivo JSON,
-    // caso estivesse usando um backend ou API.
+  const addStockItem = (newItem) => {
+    newItem.id = Date.now().toString();
+    const updatedStock = [...stock, newItem];
+    setStock(updatedStock);
+    persistStock(updatedStock);
+  };
+
+  const deleteStockItem = (id) => {
+    const updatedStock = stock.filter(item => item.id !== id);
+    setStock(updatedStock);
+    persistStock(updatedStock);
   };
 
   return (
-    <StockContext.Provider value={{ stock, updateStock }}>
+    <StockContext.Provider value={{ stock, updateStock, addStockItem, deleteStockItem }}>
       {children}
     </StockContext.Provider>
   );
