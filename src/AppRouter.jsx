@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Sidebar from '../components/Navbar/Sidebar';
 import Home from '../pages/Home';
@@ -9,7 +9,20 @@ import RequestManagement from '../pages/RequestManagement'; // Import the new Re
 import Login from '../pages/Login';
 
 const AppRouter = () => {
-  const isAuthenticated = !!localStorage.getItem('userToken');
+  const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('userToken'));
+
+  useEffect(() => {
+    // Add an event listener for localStorage changes
+    const handleStorageChange = () => {
+      setIsAuthenticated(!!localStorage.getItem('userToken'));
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
 
   return (
     <Router>
