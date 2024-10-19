@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import StockForm from '../components/Stock/StockForm';
 import StockList from '../components/Stock/StockList';
 import { StockContext } from '../src/contexts/StockContext';
-import './stock-management.scss';
 
 const StockManagement = () => {
   const [editingStockItem, setEditingStockItem] = useState(null);
@@ -36,9 +35,9 @@ const StockManagement = () => {
   const pageCount = Math.ceil(stock.length / itemsPerPage);
 
   return (
-    <div className="stock-management">
-      <h1>Gestão de Estoque</h1>
-      <div className="stock-management__content">
+    <div className="p-5 flex flex-col items-center w-full min-w-[73.5vw]">
+      <h1 className="text-2xl font-bold mb-6">Gestão de Estoque</h1>
+      <div className="flex flex-row justify-between items-start w-full p-5">
         <StockForm onSave={handleSave} stockItem={editingStockItem} />
         <StockList 
           stock={paginatedStock} 

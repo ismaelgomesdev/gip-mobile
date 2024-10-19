@@ -2,7 +2,6 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-import './login-form.scss';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email('E-mail inválido').required('Campo obrigatório'),
@@ -55,26 +54,26 @@ const LoginForm = () => {
     >
       {({ isSubmitting }) => (
         <Form>
-          <h1 className="system-name">1001 GIP</h1>
+          <h1 className="text-2xl font-bold text-blue-500 mb-6 text-center">1001 GIP</h1>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-sm font-medium">E-mail</label>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">E-mail</label>
             <Field
               type="email"
               name="email"
               placeholder="Digite seu e-mail"
-              className="w-full mt-1 p-2 border rounded"
+              className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
             />
-            <ErrorMessage name="email" component="div" className="text-red-500 text-sm" />
+            <ErrorMessage name="email" component="div" className="text-red-500 text-sm mt-1" />
           </div>
           <div className="mb-6">
-            <label htmlFor="password" className="block text-sm font-medium">Senha</label>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Senha</label>
             <Field
               type="password"
               name="password"
               placeholder="Digite sua senha"
-              className="w-full mt-1 p-2 border rounded"
+              className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
             />
-            <ErrorMessage name="password" component="div" className="text-red-500 text-sm" />
+            <ErrorMessage name="password" component="div" className="text-red-500 text-sm mt-1" />
           </div>
           <button
             type="submit"

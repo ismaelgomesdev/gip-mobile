@@ -1,69 +1,69 @@
 table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fbfbfb;  // Consistência com o fundo do form
-    border: 1px solid #444;  // Borda escura para definição
-    border-radius: 4px;  // Bordas arredondadas
-  }
-  
-  thead {
-    background-color: #2980b9;  // Azul escuro para cabeçalhos
-    color: white;  // Texto branco para contraste
-  }
-  
-  th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #555;  // Bordas internas escuras
-    color: #2d2d2d;  // Texto escuro para legibilidade
-  }
-  
-  tbody tr:hover {
-    background-color: #f4f4f4;  // Fundo claro no hover para destaque
-  }
-  
-  button {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 8px;
-    font-size: 14px;
-    color: white;
-  }
-  
-  button:first-child {
-    background-color: #27ae60;  // Verde para o botão de editar
-  }
-  
-  button:first-child:hover {
-    background-color: #229954;  // Verde escuro no hover
-  }
-  
-  button:last-child {
-    background-color: #e74c3c;  // Vermelho para o botão de deletar
-  }
-  
-  button:last-child:hover {
-    background-color: #c0392b;  // Vermelho escuro no hover
-  }
-  
-  .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .page-item {
-    list-style: none;
-    padding: 8px 16px;
-    border: 1px solid #555;
-    margin: 0 5px;
-    cursor: pointer;
-    color: #fbfbfb;  // Texto claro nas páginas de paginação
-  }
-  
-  .page-item.active {
-    background-color: #2980b9;  // Azul escuro para a página ativa
-    color: white;  // Texto branco para a página ativa
-  }
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fbfbfb;
+  border: 1px solid #444;
+  border-radius: 4px;
+}
+
+thead {
+  background-color: #2980b9;
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #555;
+  color: #2d2d2d;
+}
+
+tbody tr:hover {
+  background-color: #f4f4f4;
+}
+
+button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 8px;
+  font-size: 14px;
+  color: white;
+}
+
+button:first-child {
+  background-color: #27ae60;
+}
+
+button:first-child:hover {
+  background-color: #229954;
+}
+
+button:last-child {
+  background-color: #e74c3c;
+}
+
+button:last-child:hover {
+  background-color: #c0392b;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page-item {
+  list-style: none;
+  padding: 8px 16px;
+  border: 1px solid #555;
+  margin: 0 5px;
+  cursor: pointer;
+  color: #fbfbfb;
+}
+
+.page-item.active {
+  background-color: #2980b9;
+  color: white;
+}

@@ -22,28 +22,30 @@ const StockForm = ({ onSave, stockItem }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Nome do Item:</label>
+    <form onSubmit={handleSubmit} className="bg-gray-100 border border-gray-700 p-4 rounded-md max-w-lg mb-5">
+      <div className="mb-4">
+        <label className="block font-bold mb-2 text-gray-800">Nome do Item:</label>
         <input 
           type="text" 
           value={name} 
           onChange={(e) => setName(e.target.value)} 
           placeholder="Nome do item" 
           required 
+          className="w-full p-3 border border-gray-600 rounded-md"
         />
       </div>
-      <div>
-        <label>Quantidade:</label>
+      <div className="mb-4">
+        <label className="block font-bold mb-2 text-gray-800">Quantidade:</label>
         <input 
           type="number" 
           value={quantity} 
           onChange={(e) => setQuantity(e.target.value)} 
           placeholder="Quantidade" 
           required 
+          className="w-full p-3 border border-gray-600 rounded-md max-w-xs"
         />
       </div>
-      <button type="submit">Salvar</button>
+      <button type="submit" className="bg-blue-500 text-white py-3 px-6 rounded-md hover:bg-blue-600">Salvar</button>
     </form>
   );
 };

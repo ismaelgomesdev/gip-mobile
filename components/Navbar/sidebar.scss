@@ -1,143 +1,110 @@
+/* sidebar.scss */
 .sidebar {
-    width: 250px;
-    height: 100vh;
-    background-color: #f8f9fa;
-    padding: 20px;
-    top: 0;
-    left: 0;
-    overflow-y: auto;
+  width: 250px;
+  height: 100vh;
+  background-color: #f8f9fa;
+  padding: 20px;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #007bff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.user-role {
+  font-size: 12px;
+  color: #666;
+}
+
+.logout-section {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: center;
+}
+
+.logout-section button {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-section button:hover {
+  background-color: #c82333;
+}
+
+.app-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  flex: 0 0 250px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    flex: 0 0 200px;
   }
-  
-  .user-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .user-icon {
-    width: 40px;
-    height: 40px;
-    background-color: #007bff;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    font-size: 18px;
-    font-weight: bold;
-    margin-right: 10px;
-  }
-  
-  .user-details {
-    display: flex;
+}
+
+@media (max-width: 480px) {
+  .app-layout {
     flex-direction: column;
   }
-  
-  .user-name {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .user-role {
-    font-size: 12px;
-    color: #666;
-  }
-  
-  .sidebar ul {
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 20px;
-  }
-  
-  .sidebar ul li {
-    margin-bottom: 10px;
-  }
-  
-  .sidebar ul li a {
-    text-decoration: none;
-    color: #007bff;
-    font-size: 16px;
-  }
-  
-  .sidebar ul li ul {
-    margin-left: 20px;
-  }
-  
-  .sidebar ul li ul li {
-    margin-bottom: 8px;
-  }
-  
-  .sidebar ul li a.active {
-    font-weight: bold;
-    color: #0056b3;
-  }
-  
-  .sidebar ul li a:hover {
-    color: #0056b3;
-  }
-  
-  .logout-section {
-    margin-top: 20px;
-    padding-top: 10px;
-    border-top: 1px solid #ddd;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .logout-section button {
-    background-color: #dc3545;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .logout-section button:hover {
-    background-color: #c82333;
-  }
-  
 
-  .app-layout {
-    display: flex;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
   .sidebar {
-    flex: 0 0 250px; /* Largura fixa de 250px */
-    background-color: #f8f9fa;
-    padding: 20px;
-    overflow-y: auto;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); // Reforça o sombreamento
+    width: 100%;
+    height: auto;
+    flex: none;
   }
-  
+
   .content {
-    flex: 1; /* O conteúdo ocupa o espaço restante */
-    padding: 20px;
-    overflow-y: auto;
+    width: 100%;
+    margin-left: 0;
   }
-  
-  @media (max-width: 768px) {
-    .sidebar {
-      flex: 0 0 200px; /* Largura reduzida para telas menores */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .app-layout {
-      flex-direction: column; /* Empilha a sidebar sobre o conteúdo */
-    }
-  
-    .sidebar {
-      width: 100%;
-      height: auto;
-      flex: none; /* Remove a flexibilidade para largura */
-    }
-  
-    .content {
-      width: 100%;
-      margin-left: 0;
-    }
-  }
+}

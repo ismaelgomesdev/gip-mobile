@@ -8,8 +8,13 @@ export const RequestProvider = ({ children }) => {
   useEffect(() => {
     fetch('http://localhost:5000/api/requests')
       .then(response => response.json())
-      .then(data => setRequests(data.requests))
-      .catch(error => console.error('Error loading requests:', error));
+      .then(data => {
+        setRequests(Array.isArray(data.requests) ? data.requests : []);
+      })
+      .catch(error => {
+        console.error('Error loading requests:', error);
+        setRequests([]);
+      });
   }, []);
 
   const persistRequests = (updatedRequests) => {

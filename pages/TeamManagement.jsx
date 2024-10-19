@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import AgentForm from '../components/Team/AgentForm';
 import AgentList from '../components/Team/AgentList';
 import { AgentContext } from '../src/contexts/AgentContext';
-import './team-management.scss';
 
 const TeamManagement = () => {
   const [editingAgent, setEditingAgent] = useState(null);
@@ -36,9 +35,9 @@ const TeamManagement = () => {
   const pageCount = Math.ceil(agents.length / itemsPerPage);
 
   return (
-    <div className="team-management">
-      <h1>Gestão de Equipe</h1>
-      <div className="team-management__content">
+    <div className="p-5 flex flex-col items-center w-full min-w-[73.5vw]">
+      <h1 className="text-2xl font-bold mb-6">Gestão de Equipe</h1>
+      <div className="flex flex-row justify-between items-start w-full p-5">
         <AgentForm onSave={handleSave} agent={editingAgent} />
         <AgentList 
           agents={paginatedAgents} 

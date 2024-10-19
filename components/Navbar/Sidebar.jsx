@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from '../Logout/LogoutButton'; 
-import './sidebar.scss'; 
+import LogoutButton from '../Logout/LogoutButton';
+import './sidebar.scss';
 
 const Sidebar = () => {
   const userName = localStorage.getItem('userName') || 'Usuário';
@@ -9,21 +9,21 @@ const Sidebar = () => {
   const userInitial = userName.charAt(0).toUpperCase();
 
   return (
-    <div className="sidebar">
-      <div className="user-info">
-        <div className="user-icon">
+    <div className="sidebar w-64 h-screen bg-gray-200 p-5 shadow-md flex flex-col overflow-y-auto">
+      <div className="user-info flex items-center mb-5">
+        <div className="user-icon w-10 h-10 bg-blue-600 text-white flex items-center justify-center rounded-full text-lg font-bold mr-3">
           {userInitial}
         </div>
         <div className="user-details">
-          <span className="user-name">{userName}</span>
-          <span className="user-role">{userRole}</span>
+          <div className="user-name font-bold text-lg text-gray-800">{userName}</div>
+          <div className="user-role text-sm text-gray-600">{userRole}</div>
         </div>
       </div>
-      <ul>
+      <ul className="flex flex-col space-y-3 mb-5">
         <li>
           <NavLink 
             to="/" 
-            className={({ isActive }) => isActive ? "active" : undefined}
+            className={({ isActive }) => `text-lg ${isActive ? 'font-bold text-blue-600' : 'text-gray-800'}`}
           >
             Área Inicial
           </NavLink>
@@ -31,7 +31,7 @@ const Sidebar = () => {
         <li>
           <NavLink 
             to="/gestao-demandas" 
-            className={({ isActive }) => isActive ? "active" : undefined}
+            className={({ isActive }) => `text-lg ${isActive ? 'font-bold text-blue-600' : 'text-gray-800'}`}
           >
             Gestão de Demandas
           </NavLink>
@@ -39,7 +39,7 @@ const Sidebar = () => {
         <li>
           <NavLink 
             to="/gestao-estoque" 
-            className={({ isActive }) => isActive ? "active" : undefined}
+            className={({ isActive }) => `text-lg ${isActive ? 'font-bold text-blue-600' : 'text-gray-800'}`}
           >
             Gestão de Estoque
           </NavLink>
@@ -47,21 +47,21 @@ const Sidebar = () => {
         <li>
           <NavLink 
             to="/gestao-equipe" 
-            className={({ isActive }) => isActive ? "active" : undefined}
+            className={({ isActive }) => `text-lg ${isActive ? 'font-bold text-blue-600' : 'text-gray-800'}`}
           >
-            Gestao de Equipe
+            Gestão de Equipe
           </NavLink>
         </li>
         <li>
           <NavLink 
             to="/solicitacoes" 
-            className={({ isActive }) => isActive ? "active" : undefined}
+            className={({ isActive }) => `text-lg ${isActive ? 'font-bold text-blue-600' : 'text-gray-800'}`}
           >
             Solicitações dos Cidadãos
           </NavLink>
         </li>
       </ul>
-      <div className="logout-section">
+      <div className="logout-section mt-auto border-t border-gray-300 pt-5 flex justify-center">
         <LogoutButton />
       </div>
     </div>

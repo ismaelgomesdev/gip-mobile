@@ -2,8 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import DemandForm from '../components/DemandManagement/DemandForm';
 import DemandList from '../components/DemandManagement/DemandList';
 import { StockContext } from '../src/contexts/StockContext';
-import { AgentContext } from '../src/contexts/AgentContext'; // Import the AgentContext
-import './demand-management.scss';
+import { AgentContext } from '../src/contexts/AgentContext';
 
 const DemandManagement = () => {
   const [demands, setDemands] = useState([]);
@@ -12,9 +11,8 @@ const DemandManagement = () => {
   const itemsPerPage = 5;
 
   const { stock } = useContext(StockContext);
-  const { agents } = useContext(AgentContext); // Get agents from AgentContext
+  const { agents } = useContext(AgentContext);
 
-  // Load demands from the server
   useEffect(() => {
     fetch('http://localhost:5000/api/demands')
       .then(response => response.json())
@@ -32,7 +30,6 @@ const DemandManagement = () => {
       updatedDemands = [...demands, demand];
     }
 
-    // Update the server
     fetch('http://localhost:5000/api/demands', {
       method: 'POST',
       headers: {
@@ -76,9 +73,9 @@ const DemandManagement = () => {
   const pageCount = Math.ceil(demands.length / itemsPerPage);
 
   return (
-    <div className="demand-management">
-      <h1>Gestão de Demandas</h1>
-      <div className="demand-management__content">
+    <div className="p-5 flex flex-col items-center w-full min-w-[73.5vw]">
+      <h1 className="text-2xl font-bold mb-6">Gestão de Demandas</h1>
+      <div className="flex flex-row justify-between items-start w-full p-5">
         <DemandForm 
           onSave={saveDemand} 
           demand={editingDemand} 
