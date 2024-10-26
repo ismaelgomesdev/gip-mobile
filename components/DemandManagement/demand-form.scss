@@ -1,56 +1,33 @@
-form {
-    background-color: #fbfbfb;  // Fundo mais escuro para melhor contraste com os elementos de texto
-    border: 1px solid #444;  // Borda com um leve contraste em relação ao fundo do form
-    padding: 16px;
-    border-radius: 4px;
-    max-width: 600px;
-    margin-bottom: 20px;
-  }
-  
-  form div {
-    margin-bottom: 16px;
-  }
-  
-  label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #2d2d2d;  // Texto com cor clara para bom contraste
-  }
-  
-  input[type="text"], input[type="number"], textarea, select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #555;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: #fbfbfb; 
-    color: #2d2d2d; 
-    max-width: fit-content;
-  }
-  
-  textarea {
-    resize: vertical;
-  }
-  
-  button[type="submit"] {
-    background-color: #3498db;  // Azul mais claro para botões
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #2980b9;  // Azul mais escuro no hover
-  }
-  
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px); // Efeito de desfoque no fundo
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .location-info {
-    margin-top: 10px;
-    color: #fbfbfb;
-    font-size: 14px;
-  }
-  
+.modal-content {
+  position: relative;
+  width: 90%;
+  background: #fff;
+  border-radius: 0.5rem;
+  outline: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content form {
+  overflow-y: auto;
+  min-width: 100%;
+  height: 100%;
+  margin-bottom: 0;
+}
+
+.modal-content button[type="submit"],
+.modal-content button[type="button"] {
+  transition: background-color 0.3s ease;
+}

@@ -7,6 +7,7 @@ import { AgentContext } from '../src/contexts/AgentContext';
 const DemandManagement = () => {
   const [demands, setDemands] = useState([]);
   const [editingDemand, setEditingDemand] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 5;
 
@@ -41,6 +42,7 @@ const DemandManagement = () => {
     .then(() => {
       setDemands(updatedDemands);
       setEditingDemand(null);
+      setIsModalOpen(false);
     })
     .catch(error => console.error('Error saving demand:', error));
   };
@@ -63,6 +65,7 @@ const DemandManagement = () => {
 
   const editDemand = (demand) => {
     setEditingDemand(demand);
+    setIsModalOpen(true);
   };
 
   const handlePageChange = ({ selected }) => {
@@ -73,15 +76,10 @@ const DemandManagement = () => {
   const pageCount = Math.ceil(demands.length / itemsPerPage);
 
   return (
-    <div className="p-5 flex flex-col items-center w-full min-w-[73.5vw]">
-      <h1 className="text-2xl font-bold mb-6">Gestão de Demandas</h1>
-      <div className="flex flex-row justify-between items-start w-full p-5">
-        <DemandForm 
-          onSave={saveDemand} 
-          demand={editingDemand} 
-          agents={agents} 
-          stock={stock} 
-        />
+    <div className="p-5 flex flex-col items-start w-full min-w-max">
+      <h1 className="text-2xl font-bold">Gestão de Demandas</h1>
+      <button onClick={() => setIsModalOpen(true)} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mt-4">Nova Demanda</button>
+      <div className="flex flex-col items-start w-full pt-5 mt-4">
         <DemandList 
           demands={paginatedDemands} 
           onEdit={editDemand} 
@@ -90,6 +88,14 @@ const DemandManagement = () => {
           onPageChange={handlePageChange}
         />
       </div>
+      <DemandForm 
+        isOpen={isModalOpen} 
+        onRequestClose={() => setIsModalOpen(false)} 
+        onSave={saveDemand} 
+        demand={editingDemand} 
+        agents={agents} 
+        stock={stock} 
+      />
     </div>
   );
 };

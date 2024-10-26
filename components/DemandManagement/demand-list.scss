@@ -1,74 +1,122 @@
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fbfbfb;  // Mantendo a consistência com o fundo do form
-    border: 1px solid #444;
-    border-radius: 4px;
-  }
-  
-  thead {
-    background-color: #2980b9;  // Azul mais escuro para cabeçalhos
-    color: #2d2d2d;
-  }
-  
-  th, td {
-    padding: 12px;
+.demand-list-container {
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.demand-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 0.5rem;
+  overflow: hidden;
+
+  th {
+    background-color: var(--color-blue);
+    color: #ffffff;
+    padding: 1rem;
     text-align: left;
-    border-bottom: 1px solid #555;  // Bordas mais escuras
-    color: #2d2d2d;  // Texto mais claro para contraste
+    font-weight: 600;
+    font-size: 1rem;
   }
 
-  th { 
-    color: white;
+  td {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.9rem;
+
+    button {
+      font-weight: bold;
+      cursor: pointer;
+    }
   }
-  
-  tbody tr:hover {
-    background-color: #f4f4f4;  // Fundo escuro no hover
+
+  tr {
+    font-weight: 600;
+    transition: background-color 0.3s ease, font-weight 0.3s ease, color 0.3s ease;
   }
-  
-  button {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 8px;
-    font-size: 14px;
-    color: white;
+
+  tr:hover {
+    background-color: var(--color-light-gray);
+    color: #ffffff !important;
   }
-  
-  button:first-child {
-    background-color: #27ae60;  // Verde mais claro para o botão de editar
+}
+
+.edit-button,
+.delete-button {
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &.edit-button {
+    background-color: var(--color-green);
+    color: #ffffff;
+
+    &:hover {
+      background-color: #52a620; /* Um verde mais escuro */
+    }
   }
-  
-  button:first-child:hover {
-    background-color: #229954;  // Verde mais escuro no hover
+
+  &.delete-button {
+    background-color: var(--color-orange);
+    color: #ffffff;
+    margin-left: 0.5rem;
+
+    &:hover {
+      background-color: #d1513c; /* Um tom de laranja mais escuro */
+    }
   }
-  
-  button:last-child {
-    background-color: #e74c3c;  // Vermelho mais claro para o botão de deletar
+}
+
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: var(--color-light-gray); // Usando cor de fundo para destacar a paginação
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-item {
+  list-style: none;
+  margin: 0 0.25rem;
+}
+
+.pagination-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--color-navy);
+  background-color: var(--color-blue);
+  border-radius: 0.375rem;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+  cursor: pointer;
+  font-weight: 500;
+
+  &:hover {
+    background-color: var(--color-green);
+    color: #ffffff;
+    transform: scale(1.05);
   }
-  
-  button:last-child:hover {
-    background-color: #c0392b;  // Vermelho mais escuro no hover
+}
+
+.pagination-active .pagination-link {
+  background-color: var(--color-navy);
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.pagination-prev,
+.pagination-next {
+  background-color: var(--color-navy);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  margin: 0 0.5rem;
+  transition: background-color 0.3s ease-in-out, transform 0.2s;
+
+  &:hover {
+    background-color: #ff5a3d;
+    transform: translateY(-2px);
   }
-  
-  .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .page-item {
-    list-style: none;
-    padding: 8px 16px;
-    border: 1px solid #555;
-    margin: 0 5px;
-    cursor: pointer;
-    color: #fbfbfb;  // Texto claro para as páginas
-  }
-  
-  .page-item.active {
-    background-color: #2980b9;
-    color: white;
-  }
-  
+}

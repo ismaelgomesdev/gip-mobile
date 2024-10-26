@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -10,21 +9,27 @@
 
   color-scheme: light dark;
   color: rgba(59, 59, 59, 0.87);
-  background-color: #fbfbfb; 
+  background-color: #fbfbfb;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --color-yellow: #f0e741;
+  --color-orange: #ff764f;
+  --color-navy: #0f1e42;
+  --color-blue: #5978c2;
+  --color-green: #69c230;
+  --color-light-gray: #e5e7eb;
 }
 
 a {
   font-weight: 500;
-  color: #5dade2; 
+  color: #5dade2;
   text-decoration: inherit;
 }
 a:hover {
-  color: #2980b9; 
+  color: #2980b9;
 }
 
 body {
@@ -38,7 +43,7 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  color: #2d2d2d; 
+  color: #2d2d2d;
 }
 
 button {
@@ -48,7 +53,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #2980b9; 
+  background-color: #2980b9;
   cursor: pointer;
   transition: border-color 0.25s;
   color: #fff;
@@ -59,6 +64,25 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+textarea,
+select,
+input {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: #000000 !important;
+  box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 @media (prefers-color-scheme: light) {

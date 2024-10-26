@@ -1,13 +1,13 @@
+// Background.js
 import React, { useEffect, useRef } from 'react';
 import './Background.scss';
 
 const Background = () => {
   const colors = [
-    'rgba(0, 150, 136, 0.8)', // #009688 - Transmite inovação e bem-estar
-    'rgba(33, 150, 243, 0.8)', // #2196f3 - Representa criatividade
-    'rgba(76, 175, 80, 0.8)', // #4caf50 - Reflete sustentabilidade e bem-estar
-    'rgba(255, 235, 59, 0.8)', // #ffeb3b - Luz e otimismo
-    'rgba(156, 39, 176, 0.8)' // #9c27b0 - Transmite um toque de modernidade e inovação
+    'rgba(255, 200, 100, 0.8)', // Cores que representam a luz urbana suave
+    'rgba(255, 223, 186, 0.8)',
+    'rgba(255, 255, 204, 0.8)', // Tom amarelado mais claro
+    'rgba(240, 231, 65, 0.8)',  // Luz vibrante
   ];
 
   const circlesRef = useRef([]);
@@ -32,6 +32,7 @@ const Background = () => {
 
   return (
     <div className="background">
+      <div className="cityscape"></div> {/* Adiciona a silhueta urbana */}
       {['small', 'medium', 'large', 'xlarge'].map((size, index) => (
         <div
           key={size}

@@ -7,6 +7,7 @@ import StockManagement from '../pages/StockManagement';
 import TeamManagement from '../pages/TeamManagement';
 import RequestManagement from '../pages/RequestManagement'; // Import the new Request Management page
 import Login from '../pages/Login';
+import './App.css';
 
 const AppRouter = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('userToken'));
@@ -41,7 +42,7 @@ const AppLayout = () => {
   return (
     <div className="app-layout">
       <Sidebar />
-      <div className="content">
+      <div className="content flex flex-col">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/gestao-demandas" element={<DemandManagement />} />

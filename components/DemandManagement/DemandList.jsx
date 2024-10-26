@@ -1,29 +1,62 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
+import DemandSearch from './DemandSearch';
+import './demand-list.scss';
 
 const DemandList = ({ demands, onEdit, onDelete, pageCount, onPageChange }) => {
+  const [filteredDemands, setFilteredDemands] = useState(demands);
+
+  // Atualizar lista de demandas filtradas ao inicializar o componente ou quando 'demands' mudar
+  useEffect(() => {
+    setFilteredDemands(demands);
+  }, [demands]);
+
+  // Função para filtrar as demandas
+  const handleSearch = (term, filterBy) => {
+    if (term.trim() === '') {
+      setFilteredDemands(demands); // Se o termo estiver vazio, retorna todas as demandas
+    } else {
+      const filtered = demands.filter((demand) => {
+        if (filterBy === 'address') {
+          return demand.address.toLowerCase().includes(term.toLowerCase());
+        } else if (filterBy === 'description') {
+          return demand.description.toLowerCase().includes(term.toLowerCase());
+        } else if (filterBy === 'agentName') {
+          return demand.agentName.toLowerCase().includes(term.toLowerCase());
+        }
+        return false;
+      });
+      setFilteredDemands(filtered);
+    }
+  };
+
   return (
-    <div className="w-full">
-      <table className="w-full border-collapse bg-gray-100 border border-gray-700 rounded-md">
-        <thead className="bg-blue-700 text-white">
+    <div className="demand-list-container">
+      <DemandSearch onSearch={handleSearch} />
+      <table className="demand-table">
+        <thead>
           <tr>
-            <th className="p-3 text-left">Posicionamento</th>
-            <th className="p-3 text-left">Endereço</th>
-            <th className="p-3 text-left">Descrição</th>
-            <th className="p-3 text-left">Agente resp.</th>
-            <th className="p-3 text-left">Ações</th>
+            <th>Posicionamento</th>
+            <th>Endereço</th>
+            <th>Descrição</th>
+            <th>Agente Resp.</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
-          {demands.map(demand => (
-            <tr key={demand.id} className="hover:bg-gray-200">
-              <td className="p-3 border-b border-gray-600 text-gray-800">{demand.location}</td>
-              <td className="p-3 border-b border-gray-600 text-gray-800">{demand.address}</td>
-              <td className="p-3 border-b border-gray-600 text-gray-800">{demand.description}</td>
-              <td className="p-3 border-b border-gray-600 text-gray-800">{demand.agentName}</td>
-              <td className="p-3 border-b border-gray-600 text-gray-800">
-                <button onClick={() => onEdit(demand)} className="bg-green-500 text-white py-1 px-3 rounded-md mr-2 hover:bg-green-600">Editar</button>
-                <button onClick={() => onDelete(demand.id)} className="bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-600">Deletar</button>
+          {filteredDemands.map(demand => (
+            <tr key={demand.id}>
+              <td>{demand.location}</td>
+              <td>{demand.address}</td>
+              <td>{demand.description}</td>
+              <td>{demand.agentName}</td>
+              <td>
+                <button onClick={() => onEdit(demand)} className="edit-button">
+                  <i className="fas fa-edit"></i> Editar
+                </button>
+                <button onClick={() => onDelete(demand.id)} className="delete-button">
+                  <i className="fas fa-trash-alt"></i> Deletar
+                </button>
               </td>
             </tr>
           ))}
@@ -37,11 +70,13 @@ const DemandList = ({ demands, onEdit, onDelete, pageCount, onPageChange }) => {
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
         onPageChange={onPageChange}
-        containerClassName="flex justify-center mt-5"
-        pageClassName="list-none mx-1"
-        pageLinkClassName="px-3 py-1 border border-gray-600 rounded-md cursor-pointer text-gray-800 hover:bg-gray-300"
-        activeClassName="bg-blue-700 text-white"
-        activeLinkClassName="px-3 py-1"
+        containerClassName="pagination-container"
+        pageClassName="pagination-item"
+        pageLinkClassName="pagination-link"
+        activeClassName="pagination-active"
+        activeLinkClassName="pagination-active-link"
+        previousClassName="pagination-prev"
+        nextClassName="pagination-next"
       />
     </div>
   );

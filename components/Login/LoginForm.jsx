@@ -61,7 +61,7 @@ const LoginForm = () => {
               type="email"
               name="email"
               placeholder="Digite seu e-mail"
-              className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+              className="w-full mt-1 p-2  border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
             />
             <ErrorMessage name="email" component="div" className="text-red-500 text-sm mt-1" />
           </div>
@@ -71,7 +71,7 @@ const LoginForm = () => {
               type="password"
               name="password"
               placeholder="Digite sua senha"
-              className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+              className="w-full mt-1 p-2  border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
             />
             <ErrorMessage name="password" component="div" className="text-red-500 text-sm mt-1" />
           </div>
