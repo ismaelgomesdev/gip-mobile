@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
-import './stock-list.scss';
+import styles from './stock-list.module.scss';
 
 const StockList = ({ stock, onEdit, onDelete, pageCount, onPageChange }) => {
   return (

@@ -22,50 +22,24 @@
   position: absolute;
   border-radius: 50%;
   background: rgba(240, 231, 65, 0.8);
-  box-shadow: 0 0 20px rgba(255, 118, 79, 0.5);
-  animation: float 10s infinite ease-in-out;
+  box-shadow: 0 0 10px rgba(255, 118, 79, 0.5);
+  width: 10px;
+  height: 10px;
+  animation: shootingStar 5s ease-in-out infinite;
+  animation-delay: calc(-5s * var(--i));
 }
 
-.small {
-  width: 60px;
-  height: 60px;
-  top: 15%;
-  left: 10%;
-  animation-duration: 8s;
-}
-
-.medium {
-  width: 100px;
-  height: 100px;
-  top: 40%;
-  left: 60%;
-  animation-duration: 12s;
-}
-
-.large {
-  width: 150px;
-  height: 150px;
-  top: 70%;
-  left: 30%;
-  animation-duration: 14s;
-}
-
-.xlarge {
-  width: 200px;
-  height: 200px;
-  top: 10%;
-  left: 85%;
-  animation-duration: 18s;
-}
-
-@keyframes float {
+@keyframes shootingStar {
   0% {
-    transform: translateY(0) translateX(0);
+    transform: translateX(0) translateY(0);
+    opacity: 1;
   }
-  50% {
-    transform: translateY(-20px) translateX(10px);
+  80% {
+    transform: translateX(50px) translateY(50px);
+    opacity: 0.7;
   }
   100% {
-    transform: translateY(0) translateX(0);
+    transform: translateX(100px) translateY(100px);
+    opacity: 0;
   }
 }

@@ -15,8 +15,8 @@ const Background = () => {
   useEffect(() => {
     const circles = circlesRef.current;
 
-    circles.forEach((circle, index) => {
-      let colorIndex = index % colors.length;
+    circles.forEach((circle) => {
+      let colorIndex = Math.floor(Math.random() * colors.length);
 
       const intervalId = setInterval(() => {
         colorIndex = (colorIndex + 1) % colors.length;
@@ -24,7 +24,7 @@ const Background = () => {
         circle.style.transition = 'background-color 10s ease, box-shadow 10s ease';
         circle.style.backgroundColor = newColor;
         circle.style.boxShadow = `0 0 20px ${newColor.replace('0.8', '0.5')}`;
-      }, 10000);
+      }, 10000 + Math.random() * 5000); // Intervalo aleatório para cada círculo
 
       return () => clearInterval(intervalId);
     });
@@ -33,11 +33,17 @@ const Background = () => {
   return (
     <div className="background">
       <div className="cityscape"></div> {/* Adiciona a silhueta urbana */}
-      {['small', 'medium', 'large', 'xlarge'].map((size, index) => (
+      {Array.from({ length: 40 }).map((_, index) => (
         <div
-          key={size}
+          key={`circle-${index}`}
           ref={(el) => (circlesRef.current[index] = el)}
-          className={`circle ${size}`}
+          className="circle"
+          style={{
+            top: `${Math.random() * 50}%`, // Posiciona aleatoriamente na metade superior da tela
+            left: `${Math.random() * 100}%`,
+            animationDuration: `${3 + Math.random() * 2}s`, // Define duração de animação aleatória entre 3s e 5s
+            animationDelay: `${Math.random() * 5}s`, // Define atraso aleatório para cada círculo
+          }}
         />
       ))}
     </div>

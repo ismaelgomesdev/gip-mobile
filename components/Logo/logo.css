@@ -1,13 +1,14 @@
 .logo-container {
-    width: 150px;
-    height: 150px;
+    width: 75px;
+    height: 75px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 15px;
-    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    margin: 0 auto;
+    border-radius: 0.8rem;
+    background: linear-gradient(135deg, #f6d365 0%, #F26430 100%);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-size: 24px;
+    font-size: 1rem;
     font-weight: bold;
     color: white;
 }
