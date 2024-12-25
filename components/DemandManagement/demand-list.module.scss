@@ -1,9 +1,9 @@
-.demand-list-container {
+.demandListContainer {
   border-radius: 0.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.demand-table {
+.demandTable {
   width: 100%;
   border-collapse: collapse;
   border-radius: 0.5rem;
@@ -40,15 +40,15 @@
   }
 }
 
-.edit-button,
-.delete-button {
+.editButton,
+.deleteButton {
   border: none;
   border-radius: 4px;
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
 
-  &.edit-button {
+  &.editButton {
     background-color: var(--color-green);
     color: #ffffff;
 
@@ -57,7 +57,7 @@
     }
   }
 
-  &.delete-button {
+  &.deleteButton {
     background-color: var(--color-orange);
     color: #ffffff;
     margin-left: 0.5rem;
@@ -68,8 +68,7 @@
   }
 }
 
-
-.pagination-container {
+.paginationContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,12 +77,12 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.pagination-item {
+.paginationItem {
   list-style: none;
   margin: 0 0.25rem;
 }
 
-.pagination-link {
+.paginationLink {
   display: block;
   padding: 0.5rem 1rem;
   color: var(--color-navy);
@@ -100,14 +99,14 @@
   }
 }
 
-.pagination-active .pagination-link {
+.paginationActive .paginationLink {
   background-color: var(--color-navy);
   color: #ffffff;
   font-weight: bold;
 }
 
-.pagination-prev,
-.pagination-next {
+.paginationPrev,
+.paginationNext {
   background-color: var(--color-navy);
   color: #ffffff;
   padding: 0.5rem 1rem;

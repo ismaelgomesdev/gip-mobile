@@ -1,9 +1,10 @@
 import React from 'react';
-import './logo.css';
+import PropTypes from 'prop-types';
+import styles from './logo.module.css';
 
-const Logo = () => {
+const Logo = ({ width, height }) => {
     return (
-        <div className="logo-container">
+        <div className={styles.logoContainer} style={{ width, height }}>
             Logo
         </div>
     );

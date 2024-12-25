@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './demand-search.scss';
+import styles from './demand-search.module.scss';
 
 const DemandSearch = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -11,13 +11,13 @@ const DemandSearch = ({ onSearch }) => {
   };
 
   return (
-    <div className="demand-search-container">
-      <form onSubmit={handleSearch} className="search-form">
-        <label htmlFor="search-select" className="search-label">Pesquisar por:</label>
+    <div className={styles.demandSearchContainer}>
+      <form onSubmit={handleSearch} className={styles.searchForm}>
+        <label htmlFor="search-select" className={styles.searchLabel}>Pesquisar por:</label>
         <select
           value={filterBy}
           onChange={(e) => setFilterBy(e.target.value)}
-          className="search-select"
+          className={styles.searchSelect}
         >
           <option value="address">Endereço</option>
           <option value="description">Descrição</option>
@@ -28,9 +28,9 @@ const DemandSearch = ({ onSearch }) => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Digite o termo de busca..."
-          className="search-input"
+          className={styles.searchInput}
         />
-        <button type="submit" className="search-button">
+        <button type="submit" className={styles.searchButton}>
           Buscar
         </button>
       </form>

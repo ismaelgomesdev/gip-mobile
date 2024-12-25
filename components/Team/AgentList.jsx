@@ -1,6 +1,7 @@
 
 import React from 'react';
 import ReactPaginate from 'react-paginate';
+import styles from './agent-list.module.scss';
 
 const AgentList = ({ agents, onEdit, onDelete, pageCount, onPageChange }) => {
   return (

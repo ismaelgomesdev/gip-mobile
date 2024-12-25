@@ -3,6 +3,7 @@ import DemandForm from '../components/DemandManagement/DemandForm';
 import DemandList from '../components/DemandManagement/DemandList';
 import { StockContext } from '../src/contexts/StockContext';
 import { AgentContext } from '../src/contexts/AgentContext';
+import styles from './demand-management.module.scss';
 
 const DemandManagement = () => {
   const [demands, setDemands] = useState([]);

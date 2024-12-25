@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import AgentForm from '../components/Team/AgentForm';
 import AgentList from '../components/Team/AgentList';
 import { AgentContext } from '../src/contexts/AgentContext';
+import styles from './team-management.module.scss';
 
 const TeamManagement = () => {
   const [editingAgent, setEditingAgent] = useState(null);

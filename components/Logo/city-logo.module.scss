@@ -1,0 +1,17 @@
+.city-logo-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F2F2F2;
+  border-radius: 0.5rem;
+  width: 8rem;
+  height: 8rem;
+  overflow: hidden; /* Oculta partes da logo que extrapolarem o container */
+}
+
+.city-logo {
+  width: 100%; /* Ajusta a largura para ocupar todo o espaço disponível */
+  height: auto; /* Mantém a proporção original da imagem */
+  max-width: 8rem; /* Define um limite máximo para a largura da logo */
+  max-height: 8rem; /* Define um limite máximo para a altura da logo */
+}

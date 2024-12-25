@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { RequestContext } from '../src/contexts/RequestContext';
 import RequestList from '../components/Request/RequestList';
+import styles from './request-management.module.scss';
 
 const RequestManagement = () => {
   const { requests, updateRequest, deleteRequest } = useContext(RequestContext);

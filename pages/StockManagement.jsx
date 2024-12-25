@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import StockForm from '../components/Stock/StockForm';
 import StockList from '../components/Stock/StockList';
 import { StockContext } from '../src/contexts/StockContext';
+import styles from './stock-management.module.scss';
 
 const StockManagement = () => {
   const [editingStockItem, setEditingStockItem] = useState(null);

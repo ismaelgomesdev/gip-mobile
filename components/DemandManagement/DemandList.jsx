@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import DemandSearch from './DemandSearch';
-import './demand-list.scss';
+import styles from './demand-list.module.scss';
 
 const DemandList = ({ demands, onEdit, onDelete, pageCount, onPageChange }) => {
   const [filteredDemands, setFilteredDemands] = useState(demands);
@@ -31,9 +31,9 @@ const DemandList = ({ demands, onEdit, onDelete, pageCount, onPageChange }) => {
   };
 
   return (
-    <div className="demand-list-container">
+    <div className={styles.demandListContainer}>
       <DemandSearch onSearch={handleSearch} />
-      <table className="demand-table">
+      <table className={styles.demandTable}>
         <thead>
           <tr>
             <th>Posicionamento</th>
@@ -51,10 +51,10 @@ const DemandList = ({ demands, onEdit, onDelete, pageCount, onPageChange }) => {
               <td>{demand.description}</td>
               <td>{demand.agentName}</td>
               <td>
-                <button onClick={() => onEdit(demand)} className="edit-button">
+                <button onClick={() => onEdit(demand)} className={styles.editButton}>
                   <i className="fas fa-edit"></i> Editar
                 </button>
-                <button onClick={() => onDelete(demand.id)} className="delete-button">
+                <button onClick={() => onDelete(demand.id)} className={styles.deleteButton}>
                   <i className="fas fa-trash-alt"></i> Deletar
                 </button>
               </td>
@@ -70,13 +70,13 @@ const DemandList = ({ demands, onEdit, onDelete, pageCount, onPageChange }) => {
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
         onPageChange={onPageChange}
-        containerClassName="pagination-container"
-        pageClassName="pagination-item"
-        pageLinkClassName="pagination-link"
-        activeClassName="pagination-active"
-        activeLinkClassName="pagination-active-link"
-        previousClassName="pagination-prev"
-        nextClassName="pagination-next"
+        containerClassName={styles.paginationContainer}
+        pageClassName={styles.paginationItem}
+        pageLinkClassName={styles.paginationLink}
+        activeClassName={styles.paginationActive}
+        activeLinkClassName={styles.paginationActiveLink}
+        previousClassName={styles.paginationPrev}
+        nextClassName={styles.paginationNext}
       />
     </div>
   );

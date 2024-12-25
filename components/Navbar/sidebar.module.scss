@@ -1,21 +1,40 @@
-/* sidebar.scss */
 .sidebar {
-  width: 250px;
+  background-color: #102D40;
+  color: white;
   height: 100vh;
-  background-color: #f8f9fa;
-  padding: 20px;
-  top: 0;
-  left: 0;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 1rem;
+
+  .link {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #f0e741;
+    }
+  }
+
+  .activeLink {
+    background-color: #f0e741;
+    color: #102D40;
+    font-weight: bold;
+  }
 }
 
-.user-info {
+
+.userInfo {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.user-icon {
+.userIcon {
   width: 40px;
   height: 40px;
   background-color: #007bff;
@@ -29,23 +48,23 @@
   margin-right: 10px;
 }
 
-.user-details {
+.userDetails {
   display: flex;
   flex-direction: column;
 }
 
-.user-name {
+.userName {
   font-size: 16px;
   font-weight: bold;
   color: #333;
 }
 
-.user-role {
+.userRole {
   font-size: 12px;
   color: #666;
 }
 
-.logout-section {
+.logoutSection {
   margin-top: 20px;
   padding-top: 10px;
   border-top: 1px solid #ddd;
@@ -53,7 +72,7 @@
   justify-content: center;
 }
 
-.logout-section button {
+.logoutSection button {
   background-color: #dc3545;
   color: #fff;
   padding: 10px 20px;
@@ -62,16 +81,8 @@
   cursor: pointer;
 }
 
-.logout-section button:hover {
+.logoutSection button:hover {
   background-color: #c82333;
-}
-
-.sidebar {
-  flex: 0 0 250px;
-  background-color: #f8f9fa;
-  padding: 20px;
-  overflow-y: auto;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {

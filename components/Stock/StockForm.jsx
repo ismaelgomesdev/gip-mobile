@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './stock-form.scss';
+import styles from './stock-form.module.scss';
 
 const StockForm = ({ onSave, stockItem }) => {
   const [name, setName] = useState('');

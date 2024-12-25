@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import MapComponent from '../Map/MapComponent'; // Importando o componente de mapa
 import StockSelector from '../Stock/StockSelector';
-import './demand-form.scss';
+import styles from './demand-form.module.scss';
 
 Modal.setAppElement('#root'); // Isso é necessário para acessibilidade
 
@@ -54,8 +54,8 @@ const DemandForm = ({ isOpen, onRequestClose, onSave, demand, agents, stock }) =
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       contentLabel="Demand Form"
-      overlayClassName="modal-overlay"
-      className="modal-content"
+      overlayClassName={styles.modalOverlay}
+      className={styles.modalContent}
     >
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-lg">
         <h2 className="text-xl font-bold mb-4">Detalhes da Demanda</h2>

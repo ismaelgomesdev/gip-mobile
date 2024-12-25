@@ -1,6 +1,6 @@
 // Background.js
 import React, { useEffect, useRef } from 'react';
-import './Background.scss';
+import styles from './background.module.scss';
 
 const Background = () => {
   const colors = [
@@ -31,13 +31,13 @@ const Background = () => {
   }, [colors]);
 
   return (
-    <div className="background">
-      <div className="cityscape"></div> {/* Adiciona a silhueta urbana */}
+    <div className={styles.background}>
+      <div className={styles.cityscape}></div> {/* Adiciona a silhueta urbana */}
       {Array.from({ length: 40 }).map((_, index) => (
         <div
           key={`circle-${index}`}
           ref={(el) => (circlesRef.current[index] = el)}
-          className="circle"
+          className={styles.circle}
           style={{
             top: `${Math.random() * 50}%`, // Posiciona aleatoriamente na metade superior da tela
             left: `${Math.random() * 100}%`,
